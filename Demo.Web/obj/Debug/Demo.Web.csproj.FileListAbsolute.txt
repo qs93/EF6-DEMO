@@ -102,6 +102,7 @@ D:\UAT\EF-DEMO\Demo.Web\bin\Demo.BLL.pdb
 D:\UAT\EF-DEMO\Demo.Web\bin\Demo.IDAL.pdb
 D:\UAT\EF-DEMO\Demo.Web\bin\Demo.DALContainer.pdb
 D:\UAT\EF-DEMO\Demo.Web\bin\Demo.DAL.pdb
+D:\Yearn\EF-DEMO\Demo.Web\obj\Debug\Demo.Web.csprojResolveAssemblyReference.cache
 D:\Yearn\EF-DEMO\Demo.Web\bin\roslyn\csc.exe
 D:\Yearn\EF-DEMO\Demo.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Yearn\EF-DEMO\Demo.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -203,6 +204,7 @@ D:\Yearn\EF-DEMO\Demo.Web\bin\zh-Hans\Microsoft.Owin.Security.Facebook.resources
 D:\Yearn\EF-DEMO\Demo.Web\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 D:\Yearn\EF-DEMO\Demo.Web\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 D:\Yearn\EF-DEMO\Demo.Web\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\Yearn\EF-DEMO\Demo.Web\obj\Debug\Demo.Web.csprojResolveAssemblyReference.cache
 D:\Yearn\EF-DEMO\Demo.Web\obj\Debug\Demo.Web.dll
 D:\Yearn\EF-DEMO\Demo.Web\obj\Debug\Demo.Web.pdb
+D:\Yearn\EF-DEMO\Demo.Web\bin\Demo.Common.dll
+D:\Yearn\EF-DEMO\Demo.Web\bin\Demo.Common.pdb

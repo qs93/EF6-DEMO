@@ -8,24 +8,25 @@ namespace Demo.Web
         // 有关绑定的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/js/jqueryui").Include(
+                     "~/dist/js/jquery-ui/jquery.ui.touch-punch.min.js",
+                     "~/dist/js/jquery-ui/jquery-ui-v1.12.0.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/js/jquery").Include(
+                      "~/dist/js/jquery/jquery.min.js",
+                      "~/dist/js/jquery/jquery.cookie.min.js"));
 
-            // 使用要用于开发和学习的 Modernizr 的开发版本。然后，当你做好
-            // 生产准备时，请使用 http://modernizr.com 上的生成工具来仅选择所需的测试。
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/js/bootstrap").Include(
+                      "~/dist/js/bootstrap/bootstrap.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new StyleBundle("~/css/bootstrap").Include(
+                      "~/dist/css/bootstrap/bootstrap.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/js/angular2").Include(
+                      "~/node_modules/es6-shim/es6-shim.min.js",
+                      "~/node_modules/angular2/bundles/angular2-polyfills.min.js",
+                      "~/node_modules/rxjs/bundles/Rx.js",
+                      "~/node_modules/angular2/bundles/angular2.dev.js"));
         }
     }
 }

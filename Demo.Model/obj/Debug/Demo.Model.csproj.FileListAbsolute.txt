@@ -19,6 +19,6 @@ D:\Yearn\EF-DEMO\Demo.Model\bin\Debug\EntityFramework.xml
 D:\Yearn\EF-DEMO\Demo.Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\Yearn\EF-DEMO\Demo.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
 D:\Yearn\EF-DEMO\Demo.Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-D:\Yearn\EF-DEMO\Demo.Model\obj\Debug\Demo.Model.csprojResolveAssemblyReference.cache
 D:\Yearn\EF-DEMO\Demo.Model\obj\Debug\Demo.Model.dll
 D:\Yearn\EF-DEMO\Demo.Model\obj\Debug\Demo.Model.pdb
+D:\Yearn\EF-DEMO\Demo.Model\obj\Debug\Demo.Model.csprojResolveAssemblyReference.cache
