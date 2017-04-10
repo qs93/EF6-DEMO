@@ -1,0 +1,16 @@
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.DAL.dll.config
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.DAL.dll
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.DAL.pdb
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.IDAL.dll
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.Model.dll
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\EntityFramework.dll
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.IDAL.pdb
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\Demo.Model.pdb
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\EntityFramework.xml
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\Yearn\EF-DEMO\Demo.DAL\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Yearn\EF-DEMO\Demo.DAL\obj\Release\Demo.DAL.csprojResolveAssemblyReference.cache
+D:\Yearn\EF-DEMO\Demo.DAL\obj\Release\Demo.DAL.dll
+D:\Yearn\EF-DEMO\Demo.DAL\obj\Release\Demo.DAL.pdb

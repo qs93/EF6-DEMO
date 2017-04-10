@@ -1,0 +1,10 @@
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\Demo.IBLL.dll
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\Demo.IBLL.pdb
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\Demo.Model.dll
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\EntityFramework.dll
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\Demo.Model.pdb
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\EntityFramework.xml
+D:\Yearn\EF-DEMO\Demo.IBLL\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\Yearn\EF-DEMO\Demo.IBLL\obj\Release\Demo.IBLL.csprojResolveAssemblyReference.cache
+D:\Yearn\EF-DEMO\Demo.IBLL\obj\Release\Demo.IBLL.dll
+D:\Yearn\EF-DEMO\Demo.IBLL\obj\Release\Demo.IBLL.pdb

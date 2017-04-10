@@ -47,11 +47,7 @@ namespace Demo.Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public int IsDefault { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public long CreateBy { get; set; }
+    	public bool IsDefault { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -59,11 +55,11 @@ namespace Demo.Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public long UpdateBy { get; set; }
+    	public System.DateTime UpdateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public System.DateTime UpdateTime { get; set; }
+    	public Nullable<System.DateTime> UseTime { get; set; }
     
         public virtual Member Member { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

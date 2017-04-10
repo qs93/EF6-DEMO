@@ -1,0 +1,16 @@
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.DALContainer.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.DALContainer.pdb
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Autofac.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.DAL.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.IDAL.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\EntityFramework.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.Model.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.DAL.pdb
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.IDAL.pdb
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Autofac.xml
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\EntityFramework.xml
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\Demo.Model.pdb
+D:\Yearn\EF-DEMO\Demo.DALContainer\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\obj\Release\Demo.DALContainer.csprojResolveAssemblyReference.cache
+D:\Yearn\EF-DEMO\Demo.DALContainer\obj\Release\Demo.DALContainer.dll
+D:\Yearn\EF-DEMO\Demo.DALContainer\obj\Release\Demo.DALContainer.pdb

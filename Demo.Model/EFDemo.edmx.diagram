@@ -5,23 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2dbbf5e1cc72452da6cd83fc484beab4" Name="Diagram1">
-        <EntityTypeShape EntityType="EFDemoModel.Class" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Member" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Order" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Order_Detail" Width="1.5" PointX="9.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Product" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Product_Img" Width="1.5" PointX="9.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Receiver" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.Store" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Class_Shop_Store" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Product_Shop_Class" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Order_Shop_Member" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Receiver_Shop_Member" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Store_Shop_Member" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Order_Detail_Shop_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Order_Shop_ReceiverId" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Order_Detail_Shop_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="EFDemoModel.FK_Shop_Product_Img_Shop_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EFDemoModel.Class" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="EFDemoModel.Member" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="EFDemoModel.Order" Width="1.5" PointX="5.25" PointY="6.375" />
+        <EntityTypeShape EntityType="EFDemoModel.Order_Detail" Width="1.5" PointX="9.75" PointY="7.25" />
+        <EntityTypeShape EntityType="EFDemoModel.Product" Width="1.5" PointX="7.5" PointY="11" />
+        <EntityTypeShape EntityType="EFDemoModel.Product_Img" Width="1.5" PointX="9.75" PointY="11.5" />
+        <EntityTypeShape EntityType="EFDemoModel.Receiver" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="EFDemoModel.Store" Width="1.5" PointX="3" PointY="11.125" />
+        <AssociationConnector Association="EFDemoModel.FK_Class_Product" />
+        <AssociationConnector Association="EFDemoModel.FK_Store_Class" />
+        <AssociationConnector Association="EFDemoModel.FK_Member_Order" />
+        <AssociationConnector Association="EFDemoModel.FK_Member_Receiver" />
+        <AssociationConnector Association="EFDemoModel.FK_Member_Store" />
+        <AssociationConnector Association="EFDemoModel.FK_Order_Order_Detail" />
+        <AssociationConnector Association="EFDemoModel.FK_Receiver_Order" />
+        <AssociationConnector Association="EFDemoModel.FK_Product_Order_Detail" />
+        <AssociationConnector Association="EFDemoModel.FK_Product_Product_Img" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

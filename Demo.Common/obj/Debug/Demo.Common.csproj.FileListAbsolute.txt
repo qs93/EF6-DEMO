@@ -1,0 +1,5 @@
+D:\Yearn\EF-DEMO\Demo.Common\bin\Debug\Demo.Common.dll
+D:\Yearn\EF-DEMO\Demo.Common\bin\Debug\Demo.Common.pdb
+D:\Yearn\EF-DEMO\Demo.Common\obj\Debug\Demo.Common.dll
+D:\Yearn\EF-DEMO\Demo.Common\obj\Debug\Demo.Common.pdb
+D:\Yearn\EF-DEMO\Demo.Common\obj\Debug\Demo.Common.csprojResolveAssemblyReference.cache

@@ -28,6 +28,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.UserName)
         </dt>
 
@@ -52,35 +60,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreateBy)
+            @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreateBy)
+            @Html.DisplayFor(model => model.CreateDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreateTime)
+            @Html.DisplayNameFor(model => model.LoginDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreateTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateTime)
+            @Html.DisplayFor(model => model.LoginDate)
         </dd>
 
     </dl>

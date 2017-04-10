@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StoreId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Sort" Type="bigint" Nullable="false" />
+    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Flag" Type="int" Nullable="false" />
+    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="ReceiverId" Type="bigint" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order_Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ActualPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="OfferPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Sort" Type="bigint" Nullable="false" />
+    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_Img">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="ImgFile" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Sort" Type="bigint" Nullable="false" />
+    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Receiver">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Area" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsDefault" Type="int" Nullable="false" />
+    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="HostUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ExpireTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Shop_Class_Shop_Store">
+    <End Role="Store" Type="Self.Store" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="StoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Order_Detail_Shop_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Order_Detail_Shop_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Order_Shop_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Order_Shop_ReceiverId">
+    <End Role="Receiver" Type="Self.Receiver" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receiver">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ReceiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Product_Img_Shop_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product_Img" Type="Self.Product_Img" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product_Img">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Product_Shop_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Receiver_Shop_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Receiver" Type="Self.Receiver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Receiver">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Store_Shop_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Store" Type="Self.Store" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Store">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EFDemoModelStoreContainer">
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Product_Img" EntityType="Self.Product_Img" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Receiver" EntityType="Self.Receiver" Schema="shop" store:Type="Tables" />
+    <EntitySet Name="Store" EntityType="Self.Store" Schema="shop" store:Type="Tables" />
+    <AssociationSet Name="FK_Shop_Class_Shop_Store" Association="Self.FK_Shop_Class_Shop_Store">
+      <End Role="Store" EntitySet="Store" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Order_Detail_Shop_Order" Association="Self.FK_Shop_Order_Detail_Shop_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Order_Detail_Shop_Product" Association="Self.FK_Shop_Order_Detail_Shop_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Order_Shop_Member" Association="Self.FK_Shop_Order_Shop_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Order_Shop_ReceiverId" Association="Self.FK_Shop_Order_Shop_ReceiverId">
+      <End Role="Receiver" EntitySet="Receiver" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Product_Img_Shop_Product" Association="Self.FK_Shop_Product_Img_Shop_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Img" EntitySet="Product_Img" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Product_Shop_Class" Association="Self.FK_Shop_Product_Shop_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Receiver_Shop_Member" Association="Self.FK_Shop_Receiver_Shop_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Receiver" EntitySet="Receiver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Store_Shop_Member" Association="Self.FK_Shop_Store_Shop_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Store" EntitySet="Store" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -6,7 +6,7 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StoreId" Type="bigint" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="Sort" Type="bigint" Nullable="false" />
     <Property Name="CreateBy" Type="bigint" Nullable="false" />
@@ -19,15 +19,14 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Flag" Type="int" Nullable="false" />
-    <Property Name="CreateBy" Type="bigint" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
-    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
-    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="LoginTime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -37,7 +36,7 @@
     <Property Name="MemberId" Type="bigint" Nullable="false" />
     <Property Name="ReceiverId" Type="bigint" Nullable="false" />
     <Property Name="Quantity" Type="int" Nullable="false" />
-    <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TotalPrice" Type="decimal" Precision="14" Scale="2" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
   </EntityType>
@@ -49,8 +48,8 @@
     <Property Name="OrderId" Type="bigint" Nullable="false" />
     <Property Name="ProductId" Type="bigint" Nullable="false" />
     <Property Name="Quantity" Type="int" Nullable="false" />
-    <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="TotalPrice" Type="decimal" Precision="14" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -58,9 +57,9 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ClassId" Type="bigint" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="ActualPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="OfferPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="ActualPrice" Type="decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="OfferPrice" Type="decimal" Precision="14" Scale="2" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="Sort" Type="bigint" Nullable="false" />
     <Property Name="CreateBy" Type="bigint" Nullable="false" />
@@ -72,8 +71,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ImgFile" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Sort" Type="bigint" Nullable="false" />
     <Property Name="CreateBy" Type="bigint" Nullable="false" />
@@ -85,17 +84,16 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MemberId" Type="bigint" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Area" Type="int" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="IsDefault" Type="int" Nullable="false" />
-    <Property Name="CreateBy" Type="bigint" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
-    <Property Name="UpdateBy" Type="bigint" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="UseTime" Type="datetime" />
   </EntityType>
   <EntityType Name="Store">
     <Key>
@@ -103,7 +101,7 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MemberId" Type="bigint" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="HostUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="ExpireTime" Type="datetime" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
@@ -112,79 +110,7 @@
     <Property Name="UpdateBy" Type="bigint" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" Nullable="false" />
   </EntityType>
-  <Association Name="FK_Shop_Class_Shop_Store">
-    <End Role="Store" Type="Self.Store" Multiplicity="1" />
-    <End Role="Class" Type="Self.Class" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Store">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Class">
-        <PropertyRef Name="StoreId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Order_Detail_Shop_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order_Detail">
-        <PropertyRef Name="OrderId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Order_Detail_Shop_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order_Detail">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Order_Shop_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Member">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="MemberId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Order_Shop_ReceiverId">
-    <End Role="Receiver" Type="Self.Receiver" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Receiver">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="ReceiverId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Product_Img_Shop_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Product_Img" Type="Self.Product_Img" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Product_Img">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Product_Shop_Class">
+  <Association Name="FK_Class_Product">
     <End Role="Class" Type="Self.Class" Multiplicity="1" />
     <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
@@ -196,7 +122,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Receiver_Shop_Member">
+  <Association Name="FK_Member_Order">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Receiver">
     <End Role="Member" Type="Self.Member" Multiplicity="1" />
     <End Role="Receiver" Type="Self.Receiver" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,7 +146,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Store_Shop_Member">
+  <Association Name="FK_Member_Store">
     <End Role="Member" Type="Self.Member" Multiplicity="1" />
     <End Role="Store" Type="Self.Store" Multiplicity="*" />
     <ReferentialConstraint>
@@ -217,6 +155,66 @@
       </Principal>
       <Dependent Role="Store">
         <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Order_Detail">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Order_Detail">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Product_Img">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product_Img" Type="Self.Product_Img" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product_Img">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receiver_Order">
+    <End Role="Receiver" Type="Self.Receiver" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receiver">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ReceiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Store_Class">
+    <End Role="Store" Type="Self.Store" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="StoreId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -229,41 +227,41 @@
     <EntitySet Name="Product_Img" EntityType="Self.Product_Img" Schema="shop" store:Type="Tables" />
     <EntitySet Name="Receiver" EntityType="Self.Receiver" Schema="shop" store:Type="Tables" />
     <EntitySet Name="Store" EntityType="Self.Store" Schema="shop" store:Type="Tables" />
-    <AssociationSet Name="FK_Shop_Class_Shop_Store" Association="Self.FK_Shop_Class_Shop_Store">
-      <End Role="Store" EntitySet="Store" />
+    <AssociationSet Name="FK_Class_Product" Association="Self.FK_Class_Product">
       <End Role="Class" EntitySet="Class" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Detail_Shop_Order" Association="Self.FK_Shop_Order_Detail_Shop_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Order_Detail" EntitySet="Order_Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Detail_Shop_Product" Association="Self.FK_Shop_Order_Detail_Shop_Product">
       <End Role="Product" EntitySet="Product" />
-      <End Role="Order_Detail" EntitySet="Order_Detail" />
     </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Shop_Member" Association="Self.FK_Shop_Order_Shop_Member">
+    <AssociationSet Name="FK_Member_Order" Association="Self.FK_Member_Order">
       <End Role="Member" EntitySet="Member" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Shop_ReceiverId" Association="Self.FK_Shop_Order_Shop_ReceiverId">
+    <AssociationSet Name="FK_Member_Receiver" Association="Self.FK_Member_Receiver">
+      <End Role="Member" EntitySet="Member" />
       <End Role="Receiver" EntitySet="Receiver" />
-      <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Shop_Product_Img_Shop_Product" Association="Self.FK_Shop_Product_Img_Shop_Product">
+    <AssociationSet Name="FK_Member_Store" Association="Self.FK_Member_Store">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Store" EntitySet="Store" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Order_Detail" Association="Self.FK_Order_Order_Detail">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Order_Detail" Association="Self.FK_Product_Order_Detail">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product_Img" Association="Self.FK_Product_Product_Img">
       <End Role="Product" EntitySet="Product" />
       <End Role="Product_Img" EntitySet="Product_Img" />
     </AssociationSet>
-    <AssociationSet Name="FK_Shop_Product_Shop_Class" Association="Self.FK_Shop_Product_Shop_Class">
-      <End Role="Class" EntitySet="Class" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Receiver_Shop_Member" Association="Self.FK_Shop_Receiver_Shop_Member">
-      <End Role="Member" EntitySet="Member" />
+    <AssociationSet Name="FK_Receiver_Order" Association="Self.FK_Receiver_Order">
       <End Role="Receiver" EntitySet="Receiver" />
+      <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Shop_Store_Shop_Member" Association="Self.FK_Shop_Store_Shop_Member">
-      <End Role="Member" EntitySet="Member" />
+    <AssociationSet Name="FK_Store_Class" Association="Self.FK_Store_Class">
       <End Role="Store" EntitySet="Store" />
+      <End Role="Class" EntitySet="Class" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

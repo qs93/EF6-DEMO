@@ -1,46 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EFDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EFDemoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Classes" EntityType="EFDemoModel.Class" />
+    <EntitySet Name="Members" EntityType="EFDemoModel.Member" />
+    <EntitySet Name="Orders" EntityType="EFDemoModel.Order" />
+    <EntitySet Name="Order_Detail" EntityType="EFDemoModel.Order_Detail" />
+    <EntitySet Name="Products" EntityType="EFDemoModel.Product" />
+    <EntitySet Name="Product_Img" EntityType="EFDemoModel.Product_Img" />
+    <EntitySet Name="Receivers" EntityType="EFDemoModel.Receiver" />
+    <EntitySet Name="Stores" EntityType="EFDemoModel.Store" />
+    <AssociationSet Name="FK_Class_Product" Association="EFDemoModel.FK_Class_Product">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Store_Class" Association="EFDemoModel.FK_Store_Class">
+      <End Role="Store" EntitySet="Stores" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Order" Association="EFDemoModel.FK_Member_Order">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Receiver" Association="EFDemoModel.FK_Member_Receiver">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Receiver" EntitySet="Receivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Store" Association="EFDemoModel.FK_Member_Store">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Store" EntitySet="Stores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Order_Detail" Association="EFDemoModel.FK_Order_Order_Detail">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receiver_Order" Association="EFDemoModel.FK_Receiver_Order">
+      <End Role="Receiver" EntitySet="Receivers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Order_Detail" Association="EFDemoModel.FK_Product_Order_Detail">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product_Img" Association="EFDemoModel.FK_Product_Product_Img">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Product_Img" EntitySet="Product_Img" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Class">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StoreId" Type="Int64" Nullable="false">
-      <Documentation>
-        <Summary>所屬商店</Summary>
-      </Documentation>
-    </Property>
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false">
-      <Documentation>
-        <Summary>名稱</Summary>
-      </Documentation>
-    </Property>
+    <Property Name="StoreId" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="Sort" Type="Int64" Nullable="false" />
     <Property Name="CreateBy" Type="Int64" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdateBy" Type="Int64" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Store" Relationship="Self.FK_Shop_Class_Shop_Store" FromRole="Class" ToRole="Store" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Shop_Product_Shop_Class" FromRole="Class" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="EFDemoModel.FK_Class_Product" FromRole="Class" ToRole="Product" />
+    <NavigationProperty Name="Store" Relationship="EFDemoModel.FK_Store_Class" FromRole="Class" ToRole="Store" />
   </EntityType>
   <EntityType Name="Member">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Flag" Type="Int32" Nullable="false" />
-    <Property Name="CreateBy" Type="Int64" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UpdateBy" Type="Int64" Nullable="false" />
-    <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Shop_Order_Shop_Member" FromRole="Member" ToRole="Order" />
-    <NavigationProperty Name="Receivers" Relationship="Self.FK_Shop_Receiver_Shop_Member" FromRole="Member" ToRole="Receiver" />
-    <NavigationProperty Name="Stores" Relationship="Self.FK_Shop_Store_Shop_Member" FromRole="Member" ToRole="Store" />
+    <Property Name="LoginTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Orders" Relationship="EFDemoModel.FK_Member_Order" FromRole="Member" ToRole="Order" />
+    <NavigationProperty Name="Receivers" Relationship="EFDemoModel.FK_Member_Receiver" FromRole="Member" ToRole="Receiver" />
+    <NavigationProperty Name="Stores" Relationship="EFDemoModel.FK_Member_Store" FromRole="Member" ToRole="Store" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -50,12 +87,12 @@
     <Property Name="MemberId" Type="Int64" Nullable="false" />
     <Property Name="ReceiverId" Type="Int64" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
-    <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Member" Relationship="Self.FK_Shop_Order_Shop_Member" FromRole="Order" ToRole="Member" />
-    <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Shop_Order_Detail_Shop_Order" FromRole="Order" ToRole="Order_Detail" />
-    <NavigationProperty Name="Receiver" Relationship="Self.FK_Shop_Order_Shop_ReceiverId" FromRole="Order" ToRole="Receiver" />
+    <NavigationProperty Name="Member" Relationship="EFDemoModel.FK_Member_Order" FromRole="Order" ToRole="Member" />
+    <NavigationProperty Name="Order_Detail" Relationship="EFDemoModel.FK_Order_Order_Detail" FromRole="Order" ToRole="Order_Detail" />
+    <NavigationProperty Name="Receiver" Relationship="EFDemoModel.FK_Receiver_Order" FromRole="Order" ToRole="Receiver" />
   </EntityType>
   <EntityType Name="Order_Detail">
     <Key>
@@ -65,10 +102,10 @@
     <Property Name="OrderId" Type="Int64" Nullable="false" />
     <Property Name="ProductId" Type="Int64" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
-    <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Shop_Order_Detail_Shop_Order" FromRole="Order_Detail" ToRole="Order" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Shop_Order_Detail_Shop_Product" FromRole="Order_Detail" ToRole="Product" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <NavigationProperty Name="Order" Relationship="EFDemoModel.FK_Order_Order_Detail" FromRole="Order_Detail" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="EFDemoModel.FK_Product_Order_Detail" FromRole="Order_Detail" ToRole="Product" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -76,50 +113,49 @@
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ClassId" Type="Int64" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ActualPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="OfferPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ActualPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="OfferPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="Sort" Type="Int64" Nullable="false" />
     <Property Name="CreateBy" Type="Int64" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdateBy" Type="Int64" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Class" Relationship="Self.FK_Shop_Product_Shop_Class" FromRole="Product" ToRole="Class" />
-    <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Shop_Order_Detail_Shop_Product" FromRole="Product" ToRole="Order_Detail" />
-    <NavigationProperty Name="Product_Img" Relationship="Self.FK_Shop_Product_Img_Shop_Product" FromRole="Product" ToRole="Product_Img" />
+    <NavigationProperty Name="Class" Relationship="EFDemoModel.FK_Class_Product" FromRole="Product" ToRole="Class" />
+    <NavigationProperty Name="Order_Detail" Relationship="EFDemoModel.FK_Product_Order_Detail" FromRole="Product" ToRole="Order_Detail" />
+    <NavigationProperty Name="Product_Img" Relationship="EFDemoModel.FK_Product_Product_Img" FromRole="Product" ToRole="Product_Img" />
   </EntityType>
   <EntityType Name="Product_Img">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductId" Type="Int64" Nullable="false" />
-    <Property Name="ImgFile" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="ProductId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImgFile" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Sort" Type="Int64" Nullable="false" />
     <Property Name="CreateBy" Type="Int64" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdateBy" Type="Int64" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Shop_Product_Img_Shop_Product" FromRole="Product_Img" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="EFDemoModel.FK_Product_Product_Img" FromRole="Product_Img" ToRole="Product" />
   </EntityType>
   <EntityType Name="Receiver">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MemberId" Type="Int64" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Area" Type="Int32" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IsDefault" Type="Int32" Nullable="false" />
-    <Property Name="CreateBy" Type="Int64" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UpdateBy" Type="Int64" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Member" Relationship="Self.FK_Shop_Receiver_Shop_Member" FromRole="Receiver" ToRole="Member" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Shop_Order_Shop_ReceiverId" FromRole="Receiver" ToRole="Order" />
+    <Property Name="UseTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Member" Relationship="EFDemoModel.FK_Member_Receiver" FromRole="Receiver" ToRole="Member" />
+    <NavigationProperty Name="Orders" Relationship="EFDemoModel.FK_Receiver_Order" FromRole="Receiver" ToRole="Order" />
   </EntityType>
   <EntityType Name="Store">
     <Key>
@@ -127,32 +163,20 @@
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MemberId" Type="Int64" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HostUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HostUrl" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="ExpireTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="CreateBy" Type="Int64" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdateBy" Type="Int64" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Classes" Relationship="Self.FK_Shop_Class_Shop_Store" FromRole="Store" ToRole="Class" />
-    <NavigationProperty Name="Member" Relationship="Self.FK_Shop_Store_Shop_Member" FromRole="Store" ToRole="Member" />
+    <NavigationProperty Name="Classes" Relationship="EFDemoModel.FK_Store_Class" FromRole="Store" ToRole="Class" />
+    <NavigationProperty Name="Member" Relationship="EFDemoModel.FK_Member_Store" FromRole="Store" ToRole="Member" />
   </EntityType>
-  <Association Name="FK_Shop_Class_Shop_Store">
-    <End Role="Store" Type="Self.Store" Multiplicity="1" />
-    <End Role="Class" Type="Self.Class" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Store">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Class">
-        <PropertyRef Name="StoreId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Shop_Product_Shop_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  <Association Name="FK_Class_Product">
+    <End Type="EFDemoModel.Class" Role="Class" Multiplicity="1" />
+    <End Type="EFDemoModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Class">
         <PropertyRef Name="Id" />
@@ -162,9 +186,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Order_Shop_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+  <Association Name="FK_Store_Class">
+    <End Type="EFDemoModel.Store" Role="Store" Multiplicity="1" />
+    <End Type="EFDemoModel.Class" Role="Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="StoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Order">
+    <End Type="EFDemoModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="EFDemoModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Member">
         <PropertyRef Name="Id" />
@@ -174,9 +210,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Receiver_Shop_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="1" />
-    <End Role="Receiver" Type="Self.Receiver" Multiplicity="*" />
+  <Association Name="FK_Member_Receiver">
+    <End Type="EFDemoModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="EFDemoModel.Receiver" Role="Receiver" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Member">
         <PropertyRef Name="Id" />
@@ -186,9 +222,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Store_Shop_Member">
-    <End Role="Member" Type="Self.Member" Multiplicity="1" />
-    <End Role="Store" Type="Self.Store" Multiplicity="*" />
+  <Association Name="FK_Member_Store">
+    <End Type="EFDemoModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="EFDemoModel.Store" Role="Store" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Member">
         <PropertyRef Name="Id" />
@@ -198,9 +234,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Order_Detail_Shop_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+  <Association Name="FK_Order_Order_Detail">
+    <End Type="EFDemoModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="EFDemoModel.Order_Detail" Role="Order_Detail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Order">
         <PropertyRef Name="Id" />
@@ -210,9 +246,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Order_Shop_ReceiverId">
-    <End Role="Receiver" Type="Self.Receiver" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+  <Association Name="FK_Receiver_Order">
+    <End Type="EFDemoModel.Receiver" Role="Receiver" Multiplicity="1" />
+    <End Type="EFDemoModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Receiver">
         <PropertyRef Name="Id" />
@@ -222,9 +258,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Order_Detail_Shop_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+  <Association Name="FK_Product_Order_Detail">
+    <End Type="EFDemoModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EFDemoModel.Order_Detail" Role="Order_Detail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="Id" />
@@ -234,9 +270,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Shop_Product_Img_Shop_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Product_Img" Type="Self.Product_Img" Multiplicity="*" />
+  <Association Name="FK_Product_Product_Img">
+    <End Type="EFDemoModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EFDemoModel.Product_Img" Role="Product_Img" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="Id" />
@@ -246,50 +282,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="EFDemoEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Classes" EntityType="Self.Class" />
-    <EntitySet Name="Members" EntityType="Self.Member" />
-    <EntitySet Name="Orders" EntityType="Self.Order" />
-    <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="Product_Img" EntityType="Self.Product_Img" />
-    <EntitySet Name="Receivers" EntityType="Self.Receiver" />
-    <EntitySet Name="Stores" EntityType="Self.Store" />
-    <AssociationSet Name="FK_Shop_Class_Shop_Store" Association="Self.FK_Shop_Class_Shop_Store">
-      <End Role="Store" EntitySet="Stores" />
-      <End Role="Class" EntitySet="Classes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Product_Shop_Class" Association="Self.FK_Shop_Product_Shop_Class">
-      <End Role="Class" EntitySet="Classes" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Shop_Member" Association="Self.FK_Shop_Order_Shop_Member">
-      <End Role="Member" EntitySet="Members" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Receiver_Shop_Member" Association="Self.FK_Shop_Receiver_Shop_Member">
-      <End Role="Member" EntitySet="Members" />
-      <End Role="Receiver" EntitySet="Receivers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Store_Shop_Member" Association="Self.FK_Shop_Store_Shop_Member">
-      <End Role="Member" EntitySet="Members" />
-      <End Role="Store" EntitySet="Stores" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Detail_Shop_Order" Association="Self.FK_Shop_Order_Detail_Shop_Order">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="Order_Detail" EntitySet="Order_Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Shop_ReceiverId" Association="Self.FK_Shop_Order_Shop_ReceiverId">
-      <End Role="Receiver" EntitySet="Receivers" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Order_Detail_Shop_Product" Association="Self.FK_Shop_Order_Detail_Shop_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Order_Detail" EntitySet="Order_Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Shop_Product_Img_Shop_Product" Association="Self.FK_Shop_Product_Img_Shop_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Product_Img" EntitySet="Product_Img" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

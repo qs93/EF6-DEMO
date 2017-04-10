@@ -209,15 +209,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialHead.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdd.cshtml" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\Shared\_PartialHead.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdd.cshtml" />
-    <Content Include="tsconfig.json" />
-    <Content Include="typings.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

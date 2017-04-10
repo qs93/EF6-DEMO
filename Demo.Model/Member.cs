@@ -37,6 +37,10 @@ namespace Demo.Model
         /// <summary>
     	/// 
     	/// </summary>
+    	public string Email { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
     	public string UserName { get; set; }
         /// <summary>
     	/// 
@@ -49,19 +53,11 @@ namespace Demo.Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public long CreateBy { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
     	public System.DateTime CreateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public long UpdateBy { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public System.DateTime UpdateTime { get; set; }
+    	public System.DateTime LoginTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

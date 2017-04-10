@@ -25,11 +25,11 @@ namespace Demo.Model
     	/// </summary>
     	public long Id { get; set; }
         /// <summary>
-    	/// 所屬商店
+    	/// 
     	/// </summary>
     	public long StoreId { get; set; }
         /// <summary>
-    	/// 名稱
+    	/// 
     	/// </summary>
     	public string Name { get; set; }
         /// <summary>
@@ -57,8 +57,8 @@ namespace Demo.Model
     	/// </summary>
     	public System.DateTime UpdateTime { get; set; }
     
-        public virtual Store Store { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+        public virtual Store Store { get; set; }
     }
 }

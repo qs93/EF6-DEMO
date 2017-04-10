@@ -1,0 +1,10 @@
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\Demo.IDAL.dll
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\Demo.IDAL.pdb
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\Demo.Model.dll
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\EntityFramework.dll
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\Demo.Model.pdb
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\EntityFramework.xml
+D:\Yearn\EF-DEMO\Demo.IDAL\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\Yearn\EF-DEMO\Demo.IDAL\obj\Release\Demo.IDAL.csprojResolveAssemblyReference.cache
+D:\Yearn\EF-DEMO\Demo.IDAL\obj\Release\Demo.IDAL.dll
+D:\Yearn\EF-DEMO\Demo.IDAL\obj\Release\Demo.IDAL.pdb
